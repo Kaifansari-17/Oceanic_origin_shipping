@@ -56,7 +56,7 @@ nav ul li a::after{
     content: '';
     width: 0;
     height: 3px;
-    background: #ff5733 ;
+    background: #F6821F;
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -80,7 +80,7 @@ nav ul li a:hover::after{
 }
 
 .header-text h1 span{
-    color: #ff5733 ;
+    color: #F6821F;
 }
 
 
@@ -133,7 +133,7 @@ nav ul li a:hover::after{
     content: '';
     width: 0;
     height: 3px;
-    background: #ff5733 ;
+    background: #F6821F;
     position: absolute;
     left: 0;
     bottom: -8px;
@@ -203,7 +203,7 @@ nav ul li a:hover::after{
 }
 
 .services-list div:hover{
-    background: #ff5733 ;
+    background: #F6821F;
     transform: translate(-10px);
 }
 
@@ -238,7 +238,7 @@ nav ul li a:hover::after{
 .layer{
     width: 100%;
     height: 0%;
-    background: linear-gradient(rgba(0,0,0,6),#ff5733 );
+    background: linear-gradient(rgba(0,0,0,6),#F6821F);
     border-radius: 10px;
     position :absolute;
     left: 0;
@@ -261,7 +261,7 @@ nav ul li a:hover::after{
 
 .layer a{
     margin-top: 20px;
-    color:#ff5733 ;
+    color:#F6821F;
     text-decoration: none;
     font-size: 18px;
     line-height: 60px;
@@ -286,7 +286,7 @@ nav ul li a:hover::after{
     display: block;
     margin: 50px auto;
     width: fit-content;
-    border: 1px solid#ff5733 ;
+    border: 1px solid#F6821F;
     padding: 14px 50px;
     border-radius: 6px;
     text-decoration: none;
@@ -295,7 +295,7 @@ nav ul li a:hover::after{
 }
 
 .btn:hover{
-    background: #ff5733 ;
+    background: #F6821F;
 }
 
 /* ----------------contact--------------- */
@@ -313,7 +313,7 @@ nav ul li a:hover::after{
 }
 
 .contact-left p i{
-    color:#ff5733 ;
+    color:#F6821F;
     margin-right: 15px;
     font-size: 25px;
 }
@@ -332,13 +332,13 @@ nav ul li a:hover::after{
 }
 
 .social-icon a:hover{
-    color:#ff5733 ;
+    color:#F6821F;
     transform: translate(-5px);
 }
 
 .btn.btn2{
     display: inline-block;
-    background: #ff5733 ;
+    background: #F6821F;
 }
 
 .contact-right form{
@@ -414,7 +414,7 @@ nav .fas{
         font-size: 25px;
     }
     nav ul{
-        background: #ff5733 ;
+        background: #F6821F;
         position: fixed;
         top: 0;
         right: -200px;
