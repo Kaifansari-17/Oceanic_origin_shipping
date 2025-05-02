@@ -7,20 +7,32 @@
     <title>Oceanic Origin Shipping</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/b44b2aba65.js" crossorigin="anonymous"></script>
-    <!-- <script src="app.js"></script> -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+ <!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+   <style>
+     #map {
+       height: 300px;
+       width: 100%;
+     }
+     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="navbar">
             <nav>
-                <img src="Logo11.png" class="logo" alt="Logo" />
+                <div class="logo-group">
+                    <img src="images/Logo1.jpg" class="logo logo-brand" alt="Small Logo" />
+                    <img src="images/Logo11.png" class="logo logo-name" alt="Text Logo" />
+                  </div>
+                  
                 <ul id="sidemenu">
                     <li><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#mission">Mision</a></li>
+                    <li><a href="#mission">Mission</a></li>
                     <li><a href="#vision">Vision</a></li>
                     <li><a href="#clients">Clients</a></li>                   
                     <li><a href="#contact">Contact</a></li>
@@ -30,26 +42,44 @@
             </nav>
         </div>
     </div>
+    
     <!-- ------------Header Section--------------- -->
     <div id="header">
         <div class="container">
             <div class="header-text">
-                <!-- <p>Web Developer</p>
-                <h1>
-                    Hi, I'm <span> Kaif Ansari</span><br />
-                    From India
-                </h1> -->
+                <h1>Welcome to Oceanic Origin Shipping</h1>
+            <p>Your trusted partner in maritime crew management</p>
             </div>
         </div>
     </div>
-
+    <script>
+        const images = [
+            'images/1.jpeg',
+            'images/2.jpeg',
+            'images/3.jpeg',
+            'images/4.jpeg',
+            'images/5.jpeg'
+        ];
+    
+        let current = 0;
+        const header = document.getElementById('header');
+    
+        function changeBackground() {
+            header.style.backgroundImage = `url(${images[current]})`;
+            current = (current + 1) % images.length;
+        }
+    
+        changeBackground(); // initial image
+        setInterval(changeBackground, 5000); // change every 5 seconds
+    </script>
+    
     <!-- ------------About Section--------------- -->
     <div id="about">
         <div class="box">
             <div class="container">
                 <div class="row">
                     <div class="about-col-1">
-                        <img src="Logo1.jpg" alt="" />
+                        <img src="images/Logo1.jpg" alt="" />
                     </div>
                     <div class="about-col-2">
                         <h1 class="sub-tittle">About Us</h1>
@@ -116,7 +146,7 @@
 
                     </div>
                     <div class="about-col-1">
-                        <img src="Mission.jpg" alt="" />
+                        <img src="images/cruise1.png" alt="" />
                     </div>
                 </div>
             </div>
@@ -130,7 +160,7 @@
             <div class="container">
                 <div class="row">
                     <div class="about-col-1">
-                        <img src="Logo1.jpg" alt="" />
+                        <img src="images/Logo1.jpg" alt="" />
                     </div>
                     <div class="about-col-2">
                         <h1 class="sub-tittle">Vision & Quality Assurance</h1>
@@ -187,56 +217,74 @@
 
 
     <!-- ----------------Clients---------------- -->
+   
     <div id="clients">
         <div class="box">
-            <div class="container">
-                <h1 class="sub-tittle">Our Clients</h1>
-                <div class="work-list">
-                    <div class="work">
-                        <img src="starlogo.png" />
-                        <div class="layer">
-                            <h3>STAR TECHNICAL & MARINE SERVICES</h3>
-                            <p>
-                                P.O BOX: 17827, OFFICE NO. 103, 1 FLOOR, NEAR FREEZONE,
-                                ST
-                                AJMAN, U.A.E
-                            </p>
-                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="work">
-                        <img src="GMA.png" />
-                        <div class="layer">
-                            <h3>GMA MARINE LTD</h3>
-                            <p>
-                                80, Broad Street, 
-                                <br>
-                                Monrovia,
-                                <br>
-                                 Liberia.
-    
-                            </p>
-                          
-                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="work">
-                        <img src="binnorway.jpg" />
-                        <div class="layer">
-                            <h3>BIN NOWIRAN FOR TRADING & CONT.CO ( BINCO )</h3>
-                            <p>
-                                Al – Khafji – 31971, P.O Box- 199
-                            </p>
-                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" class="btn">See more</a>
+          <div class="container">
+            <h3 class="sub-title">Our Clients</h3>
+            <div class="clients-grid">
+            
+              <div class="client-card">
+                <img src="images/GMA.png" alt="GMA Marine Ltd" />
+              </div>
+              <div class="client-card">
+                <img src="images/bin.png" alt="Bin Nowiran (BINCO)" />
+              </div>
+              <div class="client-card">
+                <img src="images/starlogo.png" alt="Star Technical & Marine Services" />
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>  
+      <script>
+      document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector('.clients-grid');
+  const cards = document.querySelectorAll('.client-card');
+  let index = 0;
+
+  // Function to scroll the clients container smoothly
+  const scrollClients = () => {
+    if (window.innerWidth > 768) return; // Only auto-scroll on mobile
+
+    // Scroll to the next card (right)
+    index = (index + 1) % cards.length; // Update index for the next card
+    const scrollAmount = cards[index].offsetLeft; // Get the offset position of the next card
+    container.scrollTo({ left: scrollAmount, behavior: 'smooth' }); // Scroll to the next card
+  };
+
+  // Start auto-scrolling every 3 seconds
+  setInterval(scrollClients, 3000); // Change slide every 3s
+
+  // Optional: Add event listener for manual scroll (swipe)
+  container.addEventListener("wheel", (event) => {
+    if (event.deltaX !== 0) {
+      // Check if it's scrolling horizontally
+      container.scrollLeft += event.deltaX;  // Scroll left or right based on wheel movement
+    }
+  });
+});
+let touchStartX = 0;
+let touchEndX = 0;
+
+container.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX; // Record initial touch position
+});
+
+container.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX; // Record end position
+  if (touchStartX - touchEndX > 50) {
+    container.scrollLeft += 200; // Swipe right (scroll to the right)
+  }
+  if (touchEndX - touchStartX > 50) {
+    container.scrollLeft -= 200; // Swipe left (scroll to the left)
+  }
+});
+
+      </script>
+      
+      <br>
+      <br>
 
     <!-- ---------------contact------------------ -->
     <div id="contact">
@@ -244,23 +292,27 @@
             <div class="container">
                 <div class="row">
                     <div class="contact-left">
-                        <h1 class="sub-tittle">Contact US</h1>  
-                        <p>Office no. 503, Shagun Reality Insignia,<br>
+                        <h1 class="sub-tittle">Contact US</h1>
+                          
+                        <p><i class="fa-solid fa-location-dot"></i>Office no. 503, Shagun Reality Insignia,
                             Plot No. 195, Sector 19, Ulwe, Panvel, Raigad,<br> Navi Mumbai,
                             (MAHARASHTRA)- 410206. INDIA</p>
                         <p><i class="fa-solid fa-envelope"></i>info@oceanicoriginshipping.com</p>
                         
-                        <p><i class="fa-solid fa-phone"></i> +91 86573 40987</p>
+                        <!-- <p><i class="fa-solid fa-phone"></i> +91 86573 40987</p>
                         <p><i class="fa-solid fa-phone"></i>+91 86930 40987</p>
-                       
-                        
-                            <!-- <div class="social-icon">
-                                <a href="https://github.com/Kaifansari-17"><i class="fa-brands fa-github"></i></a>
-                                <a href="https://www.instagram.com/kaifansari_17/"><i
-                                        class="fa-brands fa-instagram"></i></i></a>
-                                <a href="https://www.linkedin.com/in/kaif-ansari-093248314"><i
-                                        class="fa-brands fa-linkedin"></i></a>
-                            </div> -->
+                        -->
+                        <p>    <i class="fab fa-whatsapp"></i></i> <a href="tel:+918657340987">+91 86573 40987</a>  
+                            <a href="https://wa.me/918657340987" target="_blank">
+                            
+                            </a>
+                         </p>
+                         <p> <i class="fab fa-whatsapp"></i></i> <a href="tel:+918693040987">+91 86930 40987</a>  
+                            <a href="https://wa.me/918693040987" target="_blank">
+                              
+                            </a>
+                         </p>
+                         
                         <a href="PROFILE OCEANIC ORIGIN SHIPPING.pdf" download class="btn btn2">Download Profile </a>
                     </div>
                     <div class="contact-right">
@@ -275,12 +327,319 @@
                 </div>
             </div>
         </div>
-        <div class="copyright" style="background-color:#F6821F">
-            <p>&copy; <b>Oceanic Origin Shipping</b></Oceanic>       |  <b>Privacy Policy </b> |          <b>Terms of Use</b>  </p>
-        </div>
+        
+<!-- Section: Map -->
+<section class="mb-4">
+    <h5 class="text-uppercase mb-3">Our Location</h5>
+    <div id="map" style="height: 300px; width: 100%;"></div>
+    <p id="map-address" class="mt-2">Address: Loading...</p>
+</section>
+
+<!-- Leaflet.js Map Script -->
+<script>
+    // Coordinates for your location
+    let lat = 18.9754266447869;  // Latitude
+    let lng = 73.03007370376548; // Longitude
+
+    // Initialize the map
+    const map = L.map('map').setView([lat, lng], 13);
+
+    // Add OpenStreetMap tiles to the map
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add a draggable marker at the specified location
+    const marker = L.marker([lat, lng], { draggable: true }).addTo(map);
+
+    // Function to update address from latitude and longitude using Nominatim API
+    function updateAddress(lat, lng) {
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('map-address').textContent = 'Address: ' + (data.display_name || 'Not found');
+            })
+            .catch(() => {
+                document.getElementById('map-address').textContent = 'Address: Unable to retrieve';
+            });
+    }
+
+    // When the marker is dragged, update the address
+    marker.on('dragend', function (e) {
+        const position = marker.getLatLng();
+        updateAddress(position.lat, position.lng);
+    });
+
+    // Update address on initial load
+    updateAddress(lat, lng);
+</script>
+
+<br>
+<!---Footer--->
+<div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <!-- Change wave colors to orange -->
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255, 102, 0, 0.7)" /> <!-- Light Orange -->
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255, 102, 0, 0.5)" /> <!-- Medium Orange -->
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255, 102, 0, 0.3)" /> <!-- Darker Orange -->
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255, 102, 0, 1)" /> <!-- Solid Orange -->
+        </g>
+    </svg>
+</div>
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="window.scrollTo(0, 0)">
+    <i class="fas fa-angle-up"></i>
+</button>
+<!-- WhatsApp Chat Button -->
+<a href="https://wa.me/918693040987" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp Chat" />
+  </a>
+  
+<!-- Link Font Awesome (if not already included) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<div class="copyright" style="background-color:#F6821F; margin-top: -10px; text-align: center; color: white; padding: 15px 0;">
+    <div class="social-icons" style="margin: 10px; padding: 10px;">
+        <a href="#" target="_blank" style="color: white; margin: 0 10px;"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank" style="color: white; margin: 0 10px;"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" style="color: white; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" style="color: white; margin: 0 10px;"><i class="fab fa-linkedin-in"></i></a>
     </div>
+    
+  <!-- Footer with Privacy Policy, Terms & Conditions, and FAQ -->
+<p style="color:white; font-size: 14px; text-align: center;">
+    &copy; <b>Oceanic Origin Shipping</b> | 
+    <b><a href="javascript:void(0);" style="color:white; text-decoration:none;" id="privacyBtn">Privacy Policy</a></b> | 
+    <b><a href="javascript:void(0);" style="color:white; text-decoration:none;" id="termsBtn">Terms & Conditions</a></b> | 
+    <b><a href="javascript:void(0);" style="color:white; text-decoration:none;" id="faqBtn">FAQ</a></b>
+  </p>
 
+  <!-- Modal for FAQ -->
+<div id="faqModal" class="modal">
+    <div class="modal-content">
+      <span class="close-faq" style="color:#F6821F;float: right;
+      font-size: 28px;
+      font-weight: bold;">&times;</span>
+      <h1>Frequently Asked Questions</h1>
+  
+      <div class="accordion-card">
+        <button class="accordion">What are the services that Transasia Group offer?</button>
+        <div class="panel">
+          <p>We offer a wide range of logistics services like Transasia Liner Service, Transasia Global Logistics (FCL/LCL/Air), Contract Logistics, Warehouse Management, Container Rental and Leasing, Domestic and Coastal movements across India. Apart from this, we are also into plantation and realty.</p>
+        </div>
+      </div>
+  
+      <div class="accordion-card">
+        <button class="accordion">How good is the reach of Transasia Line in India?</button>
+        <div class="panel">
+          <p>Transasia Line has extensive coverage across major ports and inland locations in India, ensuring nationwide connectivity.</p>
+        </div>
+      </div>
+  
+      <div class="accordion-card">
+        <button class="accordion">Which are the service sectors of TAL presently?</button>
+        <div class="panel">
+          <p>Currently, TAL operates in Coastal Shipping, Liner Services, Logistics, Warehousing, and Container Leasing sectors.</p>
+        </div>
+      </div>
+  
+      <div class="accordion-card">
+        <button class="accordion">What type of equipment does Transasia Line (TAL) have?</button>
+        <div class="panel">
+          <p>TAL has a fleet of containers, specialized equipment including reefers, flat racks, and ISO tanks to handle a wide variety of cargo.</p>
+        </div>
+      </div>
+  
+      <div class="accordion-card">
+        <button class="accordion">Under  Oceanic Origin Shipping what are the solutions offered?</button>
+        <div class="panel">
+          <p>TGL offers end-to-end logistics solutions including FCL/LCL shipping, air freight, warehousing, distribution, and contract logistics.</p>
+        </div>
+      </div>
+  
+      <div class="accordion-card">
+        <button class="accordion">Does TAL have any online booking system?</button>
+        <div class="panel">
+          <p>Yes, TAL has an online booking system that facilitates real-time shipment tracking, documentation, and booking requests.</p>
+        </div>
+      </div>
+  
+      <div class="accordion-card">
+        <button class="accordion">Whom to contact for a job opening?</button>
+        <div class="panel">
+          <p>You can reach our HR team via <a href="mailto:hr@ocean.com">hr@ocean.com</a> or check the Careers section on our website.</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <!-- Modal for Privacy Policy -->
+<div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close-privacy">&times;</span>
+      <h1>Privacy Policy</h1>
+      <h2>Right of Access</h2>
+      <p>
+        TASS reserves the right to update or modify this Web Site...
+      </p>
+      <p>
+        By accessing our Web pages you agree to comply with and be bound by...
+      </p>
+      <h2>Disclaimer</h2>
+      <p>
+        The contents and information on this Web Site are provided on an “as is” basis...
+      </p>
+      <ul>
+        <li>No warranty for accuracy or completeness</li>
+        <li>Not liable for any damages</li>
+        <li>Use of this site is at user’s risk</li>
+      </ul>
+      <h2>Copyright & Trademark</h2>
+      <p>
+        Content and design are owned by TASS. Unauthorized use may result in legal action.
+      </p>
+      <h2>Applicable Law</h2>
+      <p>
+        These Terms are governed by Indian law, and the courts of Cochin, Kerala have jurisdiction.
+      </p>
+      <h2>Email Disclaimer</h2>
+      <p>
+        Email contents are confidential. If received in error, delete it and inform the sender.
+      </p>
+    </div>
+  </div>
+  
+  <!-- Modal for Terms & Conditions -->
+  <div id="termsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Terms & Conditions – E-Payment</h1>
+      <p>While availing payment options provided herein, the merchant will not be responsible for any loss or damage due to:</p>
+      <ul>
+        <li>Lack of authorization for any transaction/s</li>
+        <li>Exceeding limits set by You and the Bank</li>
+        <li>Issues during payment</li>
+        <li>Decline of transaction</li>
+      </ul>
+      <p>All payments must be made in INR within India. Foreign currency is not accepted. Additional documentation may be requested before shipping.</p>
+      <br>
+      <h2>Further Details</h2>
+      <ul>
+        <li>Transactions are strictly between buyer and seller.</li>
+        <li>This payment gateway is not a banking service.</li>
+        <li>You are bound by a contract with the seller on transaction initiation.</li>
+        <li>Non-delivery must be reported in time to be eligible for refund.</li>
+      </ul>
+      <br>
+      <h2>Refunds</h2>
+      <ul>
+        <li>Refunds are only issued in Indian Rupees to the original bank.</li>
+        <li>Late claims are ineligible.</li>
+      </ul>
+      <br>
+      <h2>Fraudulent Use</h2>
+      <p>We reserve the right to hold transactions and notify authorities if misuse or fraud is suspected.</p>
+  <br>
+      <h2><center>Our Services</center></h2>
+      <div class="services-list">
+        <ul>
+          <li>Liner Service</li>
+          <li>Logistics Service</li>
+          <li>India Coastal Service</li>
+          <li>Real Estate</li>
+          <li>Container Rental & Leasing</li>
+          <li>Ship Owning</li>
+          <li>Agency</li>
+          <li>Plantation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
+  <script>
+    // FAQ Modal
+    var faqModal = document.getElementById("faqModal");
+    var faqBtn = document.getElementById("faqBtn");
+    var closeFaq = document.getElementsByClassName("close-faq")[0];
+  
+    faqBtn.onclick = function() {
+      faqModal.style.display = "block";
+    }
+  
+    closeFaq.onclick = function() {
+      faqModal.style.display = "none";
+    }
+  
+    window.onclick = function(event) {
+      if (event.target == faqModal) {
+        faqModal.style.display = "none";
+      }
+    }
+  
+    // Accordion Functionality
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
+  
+  <script>
+    // Get the modal and the button
+    var modal = document.getElementById("termsModal");
+    var btn = document.getElementById("termsBtn");
+    var span = document.getElementsByClassName("close")[0];
+  
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+  
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+  <script>
+    // Privacy Policy Modal
+    var privacyModal = document.getElementById("privacyModal");
+    var privacyBtn = document.getElementById("privacyBtn");
+    var closePrivacy = document.getElementsByClassName("close-privacy")[0];
+  
+    privacyBtn.onclick = function() {
+      privacyModal.style.display = "block";
+    }
+  
+    closePrivacy.onclick = function() {
+      privacyModal.style.display = "none";
+    }
+  
+    window.onclick = function(event) {
+      if (event.target == privacyModal) {
+        privacyModal.style.display = "none";
+      }
+    }
+  </script>
+  
     <script>
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");

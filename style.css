@@ -13,16 +13,43 @@ body{
     /* background: #080808; */
     color:#080808;;
 }
-
-#header{
+a{
+    text-decoration: none;
+    color: black;
+}
+#header {
+    position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url(cruise1.png);
+    background-image: url(images/cruise1.png);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+    transition: background-image 1s ease-in-out;
+    z-index: 1;
+    color: white; /* ensures text is visible */
 }
 
+#header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* dark overlay with 50% opacity */
+    z-index: 2;
+}
+
+#header * {
+    position: relative;
+    z-index: 3;
+}
+
+#map {
+    height: 300px;
+    width: 100%;
+  }
 .container{
     padding: 10px 10%;
 }
@@ -32,6 +59,31 @@ nav{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+#mission .container .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col-1, .about-col-2 {
+    flex: 1;
+    margin: 10px;
+}
+
+.about-col-2 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: to give the image rounded corners */
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); /* Adds a shadow around the image */
+    filter: blur(2px); /* This blurs the background area */
+    transition: filter 0.3s ease; /* Optional: for smooth transition of blur */
+}
+
+/* Optional: Remove the blur effect when hovering over the image */
+.about-col-2 img:hover {
+    filter: blur(0);
 }
 
 .logo{
@@ -349,10 +401,11 @@ form input, form textarea{
     width: 100%;
     border: 0;
     outline: none;
-    background:  #ababab;
+    background: transparent;
+    border: 1px solid #F6821F ;
     padding: 15px;
     margin: 15px 0;
-    color: #fff;
+    color: black;
     font-size: 18px;
     border-radius: 6px;
 }
@@ -400,7 +453,8 @@ nav .fas{
 
 @media only screen and (max-width :600px){
     #header{
-        background-image: url(mobileView.jpg);
+        background-image: url(images/mobileView.jpg);
+        opacity: 0.5;
     }
     .header-text{
         margin-top: 100%;
@@ -459,12 +513,341 @@ nav .fas{
 
     
 }
+@media only screen and (max-width: 600px) {
+    .fas.fa-bars {
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        z-index: 1000 !important;
+        font-size: 28px !important;
+        color:#F6821F !important; /* Optional: Ensure visibility on darker backgrounds */
+    }
 
+    nav {
+        position: relative !important;
+    }
+    
+}
+@media (max-width: 600px) {
+    .logo-brand {
+      width: 52px;
+    }
+  
+    .logo-name {
+      height: 40px;
+      max-width: 150px;
+    }
+  }
+  
 #msg{
     color: #61b752;
     margin-top: -40px;
     display: block;
 }
 
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between logos */
+  }
+  
+  .logo {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .logo-brand {
+    width: 50px !important; /* smaller icon/logo */
+  }
+  
+  .logo-name {
+    height: 50px !important; /* scaled-down wordmark */
+    max-width: 120px;
+    object-fit: contain;
+  }
+  
+  .navbar-brand {
+    color: white;
+  }
+  
+  .custom-color {
+    background-color: #7289DA !important;
+  }
 
+  /* Waves */
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /* Fix for safari gap */
+    min-height: 100px;
+    max-height: 400px;
+  }
+  
+  /* Animation */
+  .parallax > use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  }
+  
+  .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+  
+  .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+  
+  .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+  
+  .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+  
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+  
+  /* Shrinking for mobile */
+  @media (max-width: 768px) {
+    .waves {
+      height: 40px;
+      min-height: 40px;
+    }
+    .content {
+      height: 30vh;
+    }
+  }
+  
+  /* Background color changes to orange */
+  .unique-color-dark {
+    background-color: #F6821F !important;
+  }
+  
+  .bg-light {
+    background-color: #F6821F !important;
+  }
 
+      /* Modal Style */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4); /* Black with transparency */
+        padding-top: 60px;
+      }
+    
+    
+  .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 50px;
+    border: 1px solid #F6821F; /* Orange border for the modal */
+    width: 80%;
+    max-width: 600px;
+    color: #333; /* Default text color */
+    text-align: left;
+  }
+  
+  .modal-content h1, .modal-content h2 {
+    color: #F6821F; /* Heading color in orange */
+  }
+      .close {
+        margin-top: -30px;
+        color: #F6821F; /* Orange close button color */
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+    
+      .close:hover,
+      .close:focus {
+        color: #D15A17; /* Darker orange for hover */
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .close-privacy {
+        color: #F6821F;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      
+      .close-privacy:hover,
+      .close-privacy:focus {
+        color: #D15A17;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .accordion-card {
+        margin-bottom: 10px;
+      }
+      
+      .accordion {
+        background-color: #F6821F;
+        color: white;
+        cursor: pointer;
+        padding: 14px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        transition: 0.3s;
+        border-radius: 4px;
+      }
+      
+      .accordion:hover {
+        background-color: #d96b15;
+      }
+      
+      .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: #f9f9f9;
+        overflow: hidden;
+        border-left: 3px solid #F6821F;
+        margin-top: 5px;
+        border-radius: 4px;
+      }
+      #clients {
+        padding: 50px 0;
+        background-color: #F6821F;
+        text-align: center;
+      }
+      
+      .sub-title {
+        font-size: 32px;
+        color: #ffffff;
+        margin-bottom: 40px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      .clients-grid {
+        display: flex;
+        gap: 30px;
+        overflow: hidden;
+         justify-content: center; /* Center the client cards horizontally */
+  align-items: center; /* Center the client cards vertically */
+      }
+      
+      .client-card {
+        flex: 0 0 auto;
+        width: 180px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .client-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      
+      /* ----- Responsive (mobile/tablet only) ----- */
+      @media (max-width: 768px) {
+        .clients-grid {
+            display: flex;
+            overflow-x: auto;  /* This ensures horizontal scrolling */
+            scroll-behavior: smooth;  /* Smooth scrolling */
+            -webkit-overflow-scrolling: touch;  /* For better mobile support */
+          }
+          
+          
+          .clients-grid::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 4px;
+          }
+          .client-card img {
+            width: 100%; /* Ensure the image takes up the full width of the container */
+            height: auto; /* Maintain the aspect ratio */
+            object-fit: contain; /* Prevent image from being stretched or cut off */
+          }
+          
+          .clients-grid {
+            display: flex;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scrolling when swiping */
+            justify-content: flex-start; /* Ensure items are aligned from the left */
+          }
+          
+          .client-card {
+            flex: 0 0 auto; /* Prevent items from stretching */
+            margin-right: 10px; /* Space between images */
+            width: auto; /* Ensure images don't overflow */
+          }
+          
+        .client-card {
+          width: 200px;
+          height: 100%;
+        }
+      }
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+        background-color: #25d366;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: transform 0.2s;
+      }
+      
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+      
+      .whatsapp-float img {
+        width: 40px;
+        height: 40px;
+        display: block;
+      }
+
+      .scroll-to-top {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background-color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        font-size: 24px;
+    }
+
+    .scroll-to-top i {
+        font-size: 48px;
+        color: #F6821F;
+    }
+
+    .scroll-to-top:hover {
+        background-color: #f1f1f1;
+    }
+    /* Media query to hide the button on small screens */
+@media (max-width: 768px) {
+  .scroll-to-top {
+      display: none;
+  }
+}
